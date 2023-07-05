@@ -1,6 +1,6 @@
 import colors from "colors";
 
-import { inquireMenu } from "./helpers/inquirer.js";
+import { inquireMenu, pausa } from "./helpers/inquirer.js";
 
 console.clear();
 
@@ -12,6 +12,8 @@ const main = async () => {
   do {
     opt = await inquireMenu();
     console.log({ opt });
+
+    await pausa();
   } while (opt !== "0");
 
   // pausa();

@@ -1,7 +1,6 @@
 import colors from "colors";
 
-import { inquireMenu, pausa } from "./helpers/inquirer.js";
-import Tarea from "./models/tarea.js";
+import { inquireMenu, pausa, leerInput } from "./helpers/inquirer.js";
 import Tareas from "./models/tareas.js";
 
 console.clear();
@@ -10,16 +9,23 @@ const main = async () => {
   console.log("Hola Mundo");
 
   let opt = "";
+  const tareas = new Tareas();
 
   do {
-    // opt = await inquireMenu();
-    // console.log({ opt });
+    opt = await inquireMenu();
 
-    const tareas = new Tareas();
-    const tarea = new Tarea("Comprar comida");
-
-    tareas._listado[tarea.id] = tarea;
-    console.log(tareas);
+    switch (opt) {
+      case "1":
+        // crear opcion
+        const desc = await leerInput("Descripción:");
+        tareas.crearTarea(desc);
+        break;
+      case "2":
+        console.log(tareas._listado);
+        break;
+      default:
+        break;
+    }
 
     await pausa();
   } while (opt !== "0");

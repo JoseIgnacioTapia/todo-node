@@ -2,6 +2,16 @@
   {
     "id": "b4317b0a-ef0e-40cb-89cd-593900a5e23f",
     "desc": "Sacar la basura 11pm",
+    "completadoEn": true
+  },
+  {
+    "id": "3efff781-1d83-4b58-bd2b-3b4cae71ffa2",
+    "desc": "Hacer la cama",
+    "completadoEn": null
+  },
+  {
+    "id": "d8577d3a-7f95-46f4-ac94-5055a2003722",
+    "desc": "Barrer pasillo",
     "completadoEn": null
   }
 ]

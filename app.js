@@ -13,10 +13,9 @@ const main = async () => {
   const tareasDB = leerDB();
 
   if (tareasDB) {
-    // Establecer las tareas
+    // Cargar las tareas
+    tareas.cargarTareasFromArray(tareasDB);
   }
-
-  await pausa();
 
   do {
     opt = await inquireMenu();
@@ -34,7 +33,7 @@ const main = async () => {
         break;
     }
 
-    // guardarDB(tareas.listadoArr);
+    guardarDB(tareas.listadoArr);
 
     await pausa();
   } while (opt !== "0");

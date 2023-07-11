@@ -1,7 +1,19 @@
-import { writeFileSync } from "fs";
+import { writeFileSync, existsSync, readFileSync } from "fs";
+
+const archivo = "./db/data.json";
 
 export const guardarDB = (data) => {
-  const archivo = "./db/data.json";
-
   writeFileSync(archivo, JSON.stringify(data));
+};
+
+export const leerDB = () => {
+  if (!existsSync(archivo)) {
+    return null;
+  }
+  const info = readFileSync(archivo, { encoding: "utf-8" });
+  const data = JSON.parse(info);
+
+  console.log(data);
+
+  return null;
 };

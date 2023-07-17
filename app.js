@@ -6,6 +6,7 @@ import {
   leerInput,
   listadoTareasBorrar,
   confirmar,
+  mostrarListadoChecklist,
 } from "./helpers/inquirer.js";
 import Tareas from "./models/tareas.js";
 import { guardarDB, leerDB } from "./helpers/guardarArchivo.js";
@@ -40,7 +41,9 @@ const main = async () => {
         break;
       case "4":
         tareas.listarPendientesCompletadas(false);
-
+      case "5":
+        const ids = await mostrarListadoChecklist(tareas.listadoArr);
+        console.log(ids);
       case "6":
         const id = await listadoTareasBorrar(tareas.listadoArr);
         if (id !== "0") {
